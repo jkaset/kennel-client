@@ -13,7 +13,7 @@ export const AnimalProvider = (props) => {
     }
 
     const getAnimalById = (id) => {
-        return fetch(`http://localhost:8088/animals/${id}?_expand=location&_expand=customer`)
+        return fetch(`http://localhost:8088/animals/${id}`)
             .then(res => res.json())
     }
 
@@ -29,6 +29,7 @@ export const AnimalProvider = (props) => {
     }
 
     const updateAnimal = animal => {
+        console.log(animal)
         return fetch(`http://localhost:8088/animals/${animal.id}`, {
             method: "PUT",
             headers: {
